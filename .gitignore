@@ -1,0 +1,6 @@
+*.log
+*.exe
+*.pdf
+*.csv
+.venv*
+.idea*
