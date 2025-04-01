@@ -10,6 +10,7 @@ dict_classes = {0: "airplane", 1: "automobile", 2: "bird", 3: "cat", 4: "deer", 
 
 def most_frequent(list):
     list = [x[0] for x in list]
+    #print(max(set(list), key = list.count))
     return [max(set(list), key = list.count)]
 
 
@@ -43,6 +44,10 @@ def predictLabelKNN(x_train_flatten, y_train, img):
     predictions.sort(key=lambda x: x[0])
     k = 10
     predictions = predictions[:k]
+    '''
+    for i in predictions:
+        print("Frate da-mi {} lei, si {} bani".format(i[0],i[1][0]))
+    '''
 
     predLabels = [predictions[i][1] for i in range(len(predictions))]
 
@@ -68,7 +73,7 @@ def main():
     x_train_flatten = np.float64(x_train.reshape(x_train.shape[0], 32 * 32 * 3))
     x_test_flatten = np.float64(x_test.reshape(x_test.shape[0], 32 * 32 * 3))
     numberOfCorrectPredictedImages = 0
-    for idx, img in enumerate(x_test_flatten[0:200]):
+    for idx, img in enumerate(x_test_flatten[0:1]):
         predictedLabel = predictLabelKNN(x_train_flatten, y_train, img)
 
         if y_test[idx] == predictedLabel:
