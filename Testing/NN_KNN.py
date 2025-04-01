@@ -4,6 +4,9 @@ import tensorflow as tf
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+
 
 dict_classes = {0: "airplane", 1: "automobile", 2: "bird", 3: "cat", 4: "deer", 5: "dog", 6: "frog", 7: "horse", 8: "ship", 9: "truck"}
 
@@ -70,6 +73,19 @@ def main():
     #print("The size of y_test", len(y_test))
     #print(len(x_train[0][0][0]))
     #  - Exercise 2 - Visualize the first 10 images from the testing dataset with the associated labels
+    # Load and display an image
+    # Plot the first 10 images
+    plt.figure(figsize=(10, 5))  # Set figure size
+
+    for i in range(10):
+        plt.subplot(2, 5, i + 1)  # Create 2 rows, 5 columns
+        plt.imshow(x_train[i])  # Display image
+        plt.axis('off')  # Hide axes
+        plt.title(dict_classes[y_train[i][0]])  # Show class label
+
+    plt.tight_layout()  # Adjust spacing
+    plt.show()
+
     x_train_flatten = np.float64(x_train.reshape(x_train.shape[0], 32 * 32 * 3))
     x_test_flatten = np.float64(x_test.reshape(x_test.shape[0], 32 * 32 * 3))
     numberOfCorrectPredictedImages = 0
