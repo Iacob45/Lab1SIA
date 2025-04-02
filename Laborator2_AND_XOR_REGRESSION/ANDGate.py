@@ -7,7 +7,7 @@ import numpy as np
 def activationFunction(n):
 
     #TODO - Application 1 - Step 4b - Define the binary step function as activation function
-    if n>= 0:
+    if n >= 0:
         return 1
     else:
         return 0
@@ -53,13 +53,13 @@ def main():
     t = [0, 0, 0, 1]
 
     #TODO - Application 1 - Step 2 - Initialize the weights with zero  (weights)
-    w = [0, 0]
+    w = np.zeros(2)
 
     #TODO - Application 1 - Step 2 - Initialize the bias with zero  (bias)
     b = 0
 
     #TODO - Application 1 - Step 3 - Set the number of training steps  (epochs)
-    epochs = 100
+    epochs = 5
 
     #TODO - Application 1 - Step 4 - Perform the neuron training for multiple epochs
     for ep in range(epochs):
@@ -71,8 +71,8 @@ def main():
             error = t[i]-out
 
             #TODO - Application 1 - Step 6 - Update the weights
-            w[0] = w[0] + error * X[i][0]
-            w[1] = w[1] + error * X[i][1]
+            w[0] = w[0] + error * x[0]
+            w[1] = w[1] + error * x[1]
 
             #TODO - Application 1 - Step 7 - Update the bias
             b = b + error
@@ -83,7 +83,8 @@ def main():
     #TODO - Application 1 - Step 8 - Print weights and bias
     print("Weights: ",w)
     print("Bias: ", b)
-   
+
+
     # TODO - Application 1 - Step 9 - Display the results
     for i in X:
         out = forwardPropagation(i,w,b)

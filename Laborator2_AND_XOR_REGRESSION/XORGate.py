@@ -66,6 +66,7 @@ def main():
     noNeuronsLayer2 = 1
 
     weightsLayer1 = np.random.uniform(size=(inputSize, noNeuronsLayer1))
+
     weightsLayer2 = np.random.uniform(size=(noNeuronsLayer1, noNeuronsLayer2))
 
     biasLayer1 = np.random.uniform(size=(1, noNeuronsLayer1))
@@ -73,7 +74,7 @@ def main():
 
 
     noEpochs = 5000
-    learningRate = 0.3
+    learningRate = 10
 
 
     # Train the network for noEpochs

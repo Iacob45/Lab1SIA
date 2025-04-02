@@ -5,7 +5,6 @@ import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
 import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
 
 
 dict_classes = {0: "airplane", 1: "automobile", 2: "bird", 3: "cat", 4: "deer", 5: "dog", 6: "frog", 7: "horse", 8: "ship", 9: "truck"}
@@ -51,9 +50,7 @@ def predictLabelKNN(x_train_flatten, y_train, img):
     for i in predictions:
         print("Frate da-mi {} lei, si {} bani".format(i[0],i[1][0]))
     '''
-
     predLabels = [predictions[i][1] for i in range(len(predictions))]
-
 
     #  - Application 2 - Step 1h - Determine the dominant class from the predicted labels
     predictedLabel = most_frequent(predLabels)
@@ -76,7 +73,6 @@ def main():
     # Load and display an image
     # Plot the first 10 images
     plt.figure(figsize=(10, 5))  # Set figure size
-
     for i in range(10):
         plt.subplot(2, 5, i + 1)  # Create 2 rows, 5 columns
         plt.imshow(x_train[i])  # Display image
@@ -89,7 +85,7 @@ def main():
     x_train_flatten = np.float64(x_train.reshape(x_train.shape[0], 32 * 32 * 3))
     x_test_flatten = np.float64(x_test.reshape(x_test.shape[0], 32 * 32 * 3))
     numberOfCorrectPredictedImages = 0
-    for idx, img in enumerate(x_test_flatten[0:1]):
+    for idx, img in enumerate(x_test_flatten[0:200]):
         predictedLabel = predictLabelKNN(x_train_flatten, y_train, img)
 
         if y_test[idx] == predictedLabel:
