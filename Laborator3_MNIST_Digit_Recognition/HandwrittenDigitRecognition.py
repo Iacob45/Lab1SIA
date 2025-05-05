@@ -7,10 +7,7 @@ import numpy as np
 #####################################################################################################################
 #####################################################################################################################
 
-print("GPU available:", tf.config.list_physical_devices('GPU'))
-import torch
-cudnn_version = torch.backends.cudnn.version()
-print("CuDNN version:", cudnn_version)
+#output = ((input - kernel + 2 * padding) // stride)+1
 
 #####################################################################################################################
 #####################################################################################################################
@@ -159,7 +156,7 @@ def trainAndPredictCNN(X_train, Y_train, X_test, Y_test):
 
 
     #TODO - Application 2 - Step 6 - Train the model
-    model.fit(x=X_train, y=Y_train, batch_size=200, epochs=20, verbose=2, validation_data=(X_test, Y_test), shuffle=True)
+    model.fit(x=X_train, y=Y_train, batch_size=200, epochs=5, verbose=2, validation_data=(X_test, Y_test), shuffle=True)
 
     #TODO - Application 2 - Step 8 - Final evaluation of the model - compute and display the prediction error
     scores = model.evaluate(x=X_test, y=Y_test, verbose=0)

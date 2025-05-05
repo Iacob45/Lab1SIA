@@ -2,5 +2,13 @@
 *.exe
 *.pdf
 *.csv
+*.png
+*.jpg
+*.jpeg
+*.doc
+*.docx
+*.h5
+*.txt
 .venv*
 .idea*
+*.bmp
